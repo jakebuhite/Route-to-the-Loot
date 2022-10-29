@@ -6,7 +6,7 @@ public class CarMove_NC : MonoBehaviour
 {
     public float speed;
 
-    private Renderer renderer;
+    new private Renderer renderer;
 
     // Start is called before the first frame update
     void Start()
