@@ -29,7 +29,7 @@ public class Manager_NC : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(1, 3));
             slowCar = Instantiate(slowCarPrefab);
-            slowCar.transform.position = new Vector3(-5, -14, 0);
+            slowCar.transform.position = new Vector3(-6.8f, -14, 0);
             slowCar.transform.Rotate(0, 0, 0);
         }
     }
@@ -40,7 +40,7 @@ public class Manager_NC : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(1, 3));
             fastCar = Instantiate(fastCarPrefab);
-            fastCar.transform.position = new Vector3(15, -14, 0);
+            fastCar.transform.position = new Vector3(17, -14, 0);
             fastCar.transform.Rotate(0, 0, 0);
         }
     }
