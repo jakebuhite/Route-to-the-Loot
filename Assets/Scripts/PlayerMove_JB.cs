@@ -12,8 +12,8 @@ public class PlayerMove_JB : MonoBehaviour
     new private Renderer renderer;
     private float localSpeed = 0;
 
-    // Get direction the player is facing (left by default)
-    bool isFacingLeft = true;
+    // Get direction the player is facing (right by default)
+    bool isFacingLeft = false;
 
     // Start is called before the first frame update
     void Start()

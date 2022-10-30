@@ -6,6 +6,9 @@ public class Manager_NC : MonoBehaviour
 {
     public GameObject slowCarPrefab;
     public GameObject fastCarPrefab;
+    public GameObject playerPrefab;
+
+    public float balance = 0.0f;
 
     private GameObject slowCar;
     private GameObject fastCar;
@@ -13,6 +16,7 @@ public class Manager_NC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(playerPrefab);
         StartCoroutine(SpawnSlowCar());
         StartCoroutine(SpawnFastCar());
     }
@@ -29,8 +33,10 @@ public class Manager_NC : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(1, 3));
             slowCar = Instantiate(slowCarPrefab);
-            slowCar.transform.position = new Vector3(-6.8f, -14, 0);
+            slowCar.transform.position = new Vector3(-5.15f, -14, 0);
             slowCar.transform.Rotate(0, 0, 0);
+            CarMove_NC slowCarInst = slowCar.GetComponent<CarMove_NC>();
+            slowCarInst.manager = this;
         }
     }
 
@@ -40,8 +46,16 @@ public class Manager_NC : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(1, 3));
             fastCar = Instantiate(fastCarPrefab);
-            fastCar.transform.position = new Vector3(17, -14, 0);
+            fastCar.transform.position = new Vector3(18.57f, -14, 0);
             fastCar.transform.Rotate(0, 0, 0);
+            CarMove_NC fastCarInst = fastCar.GetComponent<CarMove_NC>();
+            fastCarInst.manager = this;
         }
+    }
+
+    public void PlayerRespawn()
+    {
+        balance = 0;
+        Instantiate(playerPrefab);
     }
 }

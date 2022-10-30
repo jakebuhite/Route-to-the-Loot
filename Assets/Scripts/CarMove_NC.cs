@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarMove_NC : MonoBehaviour
 {
     public float speed;
+    public Manager_NC manager;
 
     new private Renderer renderer;
 
@@ -21,6 +22,16 @@ public class CarMove_NC : MonoBehaviour
         if (!renderer.isVisible)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject gameObject = collision.gameObject;
+        if (gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+            manager.PlayerRespawn();
         }
     }
 }
