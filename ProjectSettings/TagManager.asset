@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Car
   - SceneManager
+  - Coin
+  - Trophy
   layers:
   - Default
   - TransparentFX

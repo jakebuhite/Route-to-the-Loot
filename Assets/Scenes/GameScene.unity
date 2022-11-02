@@ -170,6 +170,8 @@ MonoBehaviour:
   slowCarPrefab: {fileID: 4311206911658066894, guid: 583b62ad1a637f044ac446ad344fcefd, type: 3}
   fastCarPrefab: {fileID: 434234726236567367, guid: c37d2bdd4c3364d40b3a38c8d449bc71, type: 3}
   playerPrefab: {fileID: 2101799481455270115, guid: dcaecfee0f23d824a990056d53c0723d, type: 3}
+  coinPrefab: {fileID: 2503253980946973651, guid: f73b8b84dbb127b41bb8ca37f8d9b5fb, type: 3}
+  trophyPrefab: {fileID: 7304874503236411364, guid: 42ad5fbb042a82740b4f70197d8a3e8e, type: 3}
   balance: 0
 --- !u!1 &356930632
 GameObject:

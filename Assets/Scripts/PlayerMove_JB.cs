@@ -10,6 +10,7 @@ public class PlayerMove_JB : MonoBehaviour
 
     // Private variables
     new private Renderer renderer;
+    private ParticleSystem particles;
     private float localSpeed = 0;
 
     // Get direction the player is facing (right by default)
@@ -19,6 +20,8 @@ public class PlayerMove_JB : MonoBehaviour
     void Start()
     {
         renderer = this.GetComponent<Renderer>();
+        particles = this.GetComponent<ParticleSystem>();
+        particles.Stop();
     }
 
     // Update is called once per frame
@@ -64,6 +67,7 @@ public class PlayerMove_JB : MonoBehaviour
         {
             direction.y = 1;
             localSpeed += speed;
+            StartCoroutine(PlayParticles());
         }
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !blockMovingRight)
         {
@@ -74,6 +78,7 @@ public class PlayerMove_JB : MonoBehaviour
                 this.transform.Rotate(0.0f, 180.0f, 0.0f);
                 isFacingLeft = false;
             }
+            StartCoroutine(PlayParticles());
         }
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !blockMovingLeft)
         {
@@ -84,11 +89,13 @@ public class PlayerMove_JB : MonoBehaviour
                 this.transform.Rotate(0.0f, 180.0f, 0.0f);
                 isFacingLeft = true;
             }
+            StartCoroutine(PlayParticles());
         }
         if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !blockMovingDown)
         {
             direction.y = -1;
             localSpeed += speed;
+            StartCoroutine(PlayParticles());
         }
 
         if (direction != Vector2.zero)
@@ -99,5 +106,12 @@ public class PlayerMove_JB : MonoBehaviour
         localSpeed = Mathf.Lerp(localSpeed, 0, 0.1f);
         Vector3 newPosition = new Vector3(localSpeed * direction.x * Time.deltaTime, localSpeed * direction.y * Time.deltaTime, 0);
         this.transform.position += newPosition;
+    }
+
+    IEnumerator PlayParticles()
+    {
+        particles.Play();
+        yield return new WaitForSeconds(0.5f);
+        particles.Stop();
     }
 }

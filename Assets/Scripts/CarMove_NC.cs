@@ -18,7 +18,7 @@ public class CarMove_NC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += new Vector3(0, speed * Time.deltaTime * transform.up.y, 0);
+        this.transform.position += (speed * Time.deltaTime * transform.up);
         if (!renderer.isVisible)
         {
             Destroy(this.gameObject);
