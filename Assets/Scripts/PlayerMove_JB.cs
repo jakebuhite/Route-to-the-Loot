@@ -66,7 +66,10 @@ public class PlayerMove_JB : MonoBehaviour
         if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !blockMovingUp)
         {
             direction.y = 1;
-            localSpeed += speed;
+            if (!(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
+            {
+                localSpeed += speed;
+            }
             StartCoroutine(PlayParticles());
         }
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !blockMovingRight)
@@ -94,7 +97,10 @@ public class PlayerMove_JB : MonoBehaviour
         if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !blockMovingDown)
         {
             direction.y = -1;
-            localSpeed += speed;
+            if (!(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
+            {
+                localSpeed += speed;
+            }
             StartCoroutine(PlayParticles());
         }
 

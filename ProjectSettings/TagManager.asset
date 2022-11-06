@@ -8,6 +8,7 @@ TagManager:
   - SceneManager
   - Coin
   - Trophy
+  - Collectible
   layers:
   - Default
   - TransparentFX

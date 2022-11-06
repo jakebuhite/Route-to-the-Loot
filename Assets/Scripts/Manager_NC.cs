@@ -7,15 +7,15 @@ public class Manager_NC : MonoBehaviour
     public GameObject slowCarPrefab;
     public GameObject fastCarPrefab;
     public GameObject playerPrefab;
-    public GameObject coinPrefab;
-    public GameObject trophyPrefab;
+
+    public GameObject[] lvl1Collectibles;
+    public GameObject[] lvl2Collectibles;
 
     public float balance = 0.0f;
+    public float timer = 0.0f;
 
     private GameObject slowCar;
     private GameObject fastCar;
-    private GameObject coin;
-    private GameObject trophy;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +23,14 @@ public class Manager_NC : MonoBehaviour
         Instantiate(playerPrefab);
         StartCoroutine(SpawnSlowCar());
         StartCoroutine(SpawnFastCar());
-        StartCoroutine(SpawnCoin());
-        StartCoroutine(SpawnTrophy());
+        StartCoroutine(SpawnLvl1());
+        StartCoroutine(SpawnLvl2());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        timer += Time.deltaTime;
     }
 
     IEnumerator SpawnSlowCar()
@@ -77,27 +77,32 @@ public class Manager_NC : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnCoin()
+    public void updateBalance(int value, int level)
+    {
+        balance += value;
+    }
+
+    IEnumerator SpawnLvl1()
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(1, 3));
-            coin = Instantiate(coinPrefab);
-            coin.transform.position = new Vector3(Random.Range(-3.15f, 12.57f), Random.Range(-12, 13), 0);
-            Collectible_NC coinInst = coin.GetComponent<Collectible_NC>();
-            coinInst.manager = this;
+            GameObject newObj = Instantiate(getRandomCollectible(1));
+            newObj.transform.position = new Vector3(Random.Range(-3.15f, 12.57f), Random.Range(-12, 13), 0);
+            Collectible_NC instance = newObj.GetComponent<Collectible_NC>();
+            instance.manager = this;
         }
     }
 
-    IEnumerator SpawnTrophy()
+    IEnumerator SpawnLvl2()
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(5, 7));
-            trophy = Instantiate(trophyPrefab);
-            trophy.transform.position = new Vector3(Random.Range(20.57f, 25), Random.Range(-12, 13), 0);
-            Collectible_NC trophyInst = trophy.GetComponent<Collectible_NC>();
-            trophyInst.manager = this;
+            GameObject newObj = Instantiate(getRandomCollectible(2));
+            newObj.transform.position = new Vector3(Random.Range(20.57f, 25), Random.Range(-12, 13), 0);
+            Collectible_NC instance = newObj.GetComponent<Collectible_NC>();
+            instance.manager = this;
         }
     }
 
@@ -105,5 +110,14 @@ public class Manager_NC : MonoBehaviour
     {
         balance = 0;
         Instantiate(playerPrefab);
+    }
+
+    public GameObject getRandomCollectible(int level)
+    {
+        if (level == 2)
+        {
+            return lvl2Collectibles[Random.Range(0, lvl2Collectibles.Length)];
+        }
+        return lvl1Collectibles[Random.Range(0, lvl1Collectibles.Length)];
     }
 }

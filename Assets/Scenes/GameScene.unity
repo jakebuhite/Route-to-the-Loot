@@ -170,8 +170,12 @@ MonoBehaviour:
   slowCarPrefab: {fileID: 4311206911658066894, guid: 583b62ad1a637f044ac446ad344fcefd, type: 3}
   fastCarPrefab: {fileID: 434234726236567367, guid: c37d2bdd4c3364d40b3a38c8d449bc71, type: 3}
   playerPrefab: {fileID: 2101799481455270115, guid: dcaecfee0f23d824a990056d53c0723d, type: 3}
-  coinPrefab: {fileID: 2503253980946973651, guid: f73b8b84dbb127b41bb8ca37f8d9b5fb, type: 3}
-  trophyPrefab: {fileID: 7304874503236411364, guid: 42ad5fbb042a82740b4f70197d8a3e8e, type: 3}
+  lvl1Collectibles:
+  - {fileID: 490229022741608932, guid: c4624e8da3237a44cb52970d595b7f44, type: 3}
+  - {fileID: 7364211936170094586, guid: f5995140089d25747ad361bd2152788b, type: 3}
+  lvl2Collectibles:
+  - {fileID: 8829714529799536705, guid: ebb5657a4235a544b800dcfdae8b718a, type: 3}
+  - {fileID: 6625009450485088529, guid: d259cd57a0e45dd4cbbc685c82df866d, type: 3}
   balance: 0
 --- !u!1 &356930632
 GameObject:
@@ -519,7 +523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867658770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.59, y: 6.17, z: -2}
+  m_LocalPosition: {x: -24.59, y: 6.17, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -652,10 +656,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Balance: 1/15'
+  m_text: Balance 15/15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5e75c52cca3cb541a3c61df7f27d91d, type: 2}
+  m_sharedMaterial: {fileID: -6674032860207519249, guid: a5e75c52cca3cb541a3c61df7f27d91d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -679,13 +683,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 20.55
+  m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
