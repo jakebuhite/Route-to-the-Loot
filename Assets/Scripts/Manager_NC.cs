@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Manager_NC : MonoBehaviour
 {
@@ -13,6 +16,8 @@ public class Manager_NC : MonoBehaviour
 
     public float balance = 0.0f;
     public float timer = 0.0f;
+    public float goal = 0.0f;
+    public TMP_Text balanceText;
 
     private GameObject slowCar;
     private GameObject fastCar;
@@ -25,6 +30,8 @@ public class Manager_NC : MonoBehaviour
         StartCoroutine(SpawnFastCar());
         StartCoroutine(SpawnLvl1());
         StartCoroutine(SpawnLvl2());
+        setGoal();
+        
     }
 
     // Update is called once per frame
@@ -80,6 +87,8 @@ public class Manager_NC : MonoBehaviour
     public void updateBalance(int value, int level)
     {
         balance += value;
+        balanceText.text = ("Balance: " + balance + "/" + goal);
+
     }
 
     IEnumerator SpawnLvl1()
@@ -120,4 +129,16 @@ public class Manager_NC : MonoBehaviour
         }
         return lvl1Collectibles[Random.Range(0, lvl1Collectibles.Length)];
     }
+
+    public void  setGoal()
+    {
+        goal = 5 * Constants.C.difficulty;
+        balanceText.text = ("Balance: " + balance + "/" + goal);
+
+
+    }
+
+    
 }
+
+   

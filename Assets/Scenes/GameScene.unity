@@ -177,6 +177,9 @@ MonoBehaviour:
   - {fileID: 8829714529799536705, guid: ebb5657a4235a544b800dcfdae8b718a, type: 3}
   - {fileID: 6625009450485088529, guid: d259cd57a0e45dd4cbbc685c82df866d, type: 3}
   balance: 0
+  timer: 0
+  goal: 0
+  balanceText: {fileID: 1946001805}
 --- !u!1 &356930632
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867658770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.59, y: 6.17, z: 0}
+  m_LocalPosition: {x: -22, y: 6.17, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
