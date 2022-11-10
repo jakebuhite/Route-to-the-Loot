@@ -38,6 +38,7 @@ public class Manager_NC : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        setGoal();
     }
 
     IEnumerator SpawnSlowCar()
@@ -88,7 +89,6 @@ public class Manager_NC : MonoBehaviour
     {
         balance += value;
         balanceText.text = ("Balance: " + balance + "/" + goal);
-
     }
 
     IEnumerator SpawnLvl1()
@@ -134,11 +134,7 @@ public class Manager_NC : MonoBehaviour
     {
         goal = 5 * Constants.C.difficulty;
         balanceText.text = ("Balance: " + balance + "/" + goal);
-
-
     }
-
-    
 }
 
    
