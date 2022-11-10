@@ -8,10 +8,17 @@ public class PlayerMove_JB : MonoBehaviour
     public int spawnRange = 1;
     public float speed = 0.1f;
 
+    // Player animation
+    public Sprite[] playerSprites;
+    private int currentTexture = 0;
+
     // Private variables
-    new private Renderer renderer;
+    new private SpriteRenderer renderer;
     private ParticleSystem particles;
     private float localSpeed = 0;
+
+    // Check if coroutine is active
+    bool isActive = false;
 
     // Get direction the player is facing (right by default)
     bool isFacingLeft = false;
@@ -19,7 +26,7 @@ public class PlayerMove_JB : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        renderer = this.GetComponent<Renderer>();
+        renderer = this.GetComponent<SpriteRenderer>();
         particles = this.GetComponent<ParticleSystem>();
         particles.Stop();
     }
@@ -28,7 +35,7 @@ public class PlayerMove_JB : MonoBehaviour
     void Update()
     {
         Move();
-    }
+}
 
     private void Move()
     {
@@ -69,6 +76,11 @@ public class PlayerMove_JB : MonoBehaviour
             if (!(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
             {
                 localSpeed += speed;
+                if (!isActive)
+                {
+                    StartCoroutine(PlayerAnimation());
+                    isActive = true;
+                }
             }
             StartCoroutine(PlayParticles());
         }
@@ -81,6 +93,11 @@ public class PlayerMove_JB : MonoBehaviour
                 this.transform.Rotate(0.0f, 180.0f, 0.0f);
                 isFacingLeft = false;
             }
+            if (!isActive)
+            {
+                StartCoroutine(PlayerAnimation());
+                isActive = true;
+            }
             StartCoroutine(PlayParticles());
         }
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !blockMovingLeft)
@@ -92,6 +109,11 @@ public class PlayerMove_JB : MonoBehaviour
                 this.transform.Rotate(0.0f, 180.0f, 0.0f);
                 isFacingLeft = true;
             }
+            if (!isActive)
+            {
+                StartCoroutine(PlayerAnimation());
+                isActive = true;
+            }
             StartCoroutine(PlayParticles());
         }
         if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !blockMovingDown)
@@ -100,8 +122,21 @@ public class PlayerMove_JB : MonoBehaviour
             if (!(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
             {
                 localSpeed += speed;
+                if (!isActive)
+                {
+                    StartCoroutine(PlayerAnimation());
+                    isActive = true;
+                }
             }
             StartCoroutine(PlayParticles());
+        }
+        // Stop player animation when player stops moving
+        if (isActive && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
+        {
+            StopCoroutine(PlayerAnimation());
+            isActive = false;
+            currentTexture = 0;
+            renderer.sprite = playerSprites[currentTexture];
         }
 
         if (direction != Vector2.zero)
@@ -119,5 +154,16 @@ public class PlayerMove_JB : MonoBehaviour
         particles.Play();
         yield return new WaitForSeconds(0.5f);
         particles.Stop();
+    }
+
+    IEnumerator PlayerAnimation()
+    {
+        renderer.sprite = playerSprites[currentTexture];
+        currentTexture = (currentTexture + 1) % playerSprites.Length;
+        yield return new WaitForSeconds(0.1f);
+        if (isActive)
+        {
+            StartCoroutine(PlayerAnimation());
+        }
     }
 }

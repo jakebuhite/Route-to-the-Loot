@@ -130,12 +130,10 @@ public class Manager_NC : MonoBehaviour
         return lvl1Collectibles[Random.Range(0, lvl1Collectibles.Length)];
     }
 
-    public void  setGoal()
+    public void setGoal()
     {
         goal = 5 * Constants.C.difficulty;
         balanceText.text = ("Balance: " + balance + "/" + goal);
-
-
     }
 
     
