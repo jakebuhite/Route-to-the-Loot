@@ -38,6 +38,10 @@ public class Manager_NC : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+<<<<<<< HEAD
+=======
+        setGoal();
+>>>>>>> 96bc3358717b31214605240ed948b49d2ab16f67
     }
 
     IEnumerator SpawnSlowCar()
@@ -88,7 +92,10 @@ public class Manager_NC : MonoBehaviour
     {
         balance += value;
         balanceText.text = ("Balance: " + balance + "/" + goal);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 96bc3358717b31214605240ed948b49d2ab16f67
     }
 
     IEnumerator SpawnLvl1()
@@ -130,13 +137,20 @@ public class Manager_NC : MonoBehaviour
         return lvl1Collectibles[Random.Range(0, lvl1Collectibles.Length)];
     }
 
+<<<<<<< HEAD
     public void setGoal()
+=======
+    public void  setGoal()
+>>>>>>> 96bc3358717b31214605240ed948b49d2ab16f67
     {
         goal = 5 * Constants.C.difficulty;
         balanceText.text = ("Balance: " + balance + "/" + goal);
     }
+<<<<<<< HEAD
 
     
+=======
+>>>>>>> 96bc3358717b31214605240ed948b49d2ab16f67
 }
 
    
