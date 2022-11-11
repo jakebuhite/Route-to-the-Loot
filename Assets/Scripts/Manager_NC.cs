@@ -95,7 +95,7 @@ public class Manager_NC : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(1, 3));
+            yield return new WaitForSeconds(Random.Range(3, 7));
             GameObject newObj = Instantiate(getRandomCollectible(1));
             newObj.transform.position = new Vector3(Random.Range(-3.15f, 12.57f), Random.Range(-12, 13), 0);
             Collectible_NC instance = newObj.GetComponent<Collectible_NC>();
@@ -107,7 +107,7 @@ public class Manager_NC : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5, 7));
+            yield return new WaitForSeconds(Random.Range(6, 10));
             GameObject newObj = Instantiate(getRandomCollectible(2));
             newObj.transform.position = new Vector3(Random.Range(20.57f, 25), Random.Range(-12, 13), 0);
             Collectible_NC instance = newObj.GetComponent<Collectible_NC>();
