@@ -11,7 +11,7 @@ public class Collectible_NC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(this.gameObject, Random.Range(3, 5));
+
     }
 
     // Update is called once per frame
