@@ -143,8 +143,8 @@ public class PlayerMove_JB : MonoBehaviour
         {
             direction.Normalize();
         }
-        Mathf.Clamp(localSpeed, 0, 1.75f);
-        localSpeed = Mathf.Lerp(localSpeed, 0, 0.18f);
+        Mathf.Clamp(localSpeed, 0, 2f);
+        localSpeed = Mathf.Lerp(localSpeed, 0, 0.13f);
         Vector3 newPosition = new Vector3(localSpeed * direction.x * Time.deltaTime, localSpeed * direction.y * Time.deltaTime, 0);
         this.transform.position += newPosition;
     }
