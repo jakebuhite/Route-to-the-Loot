@@ -14,10 +14,13 @@ public class Manager_NC : MonoBehaviour
     public GameObject[] lvl1Collectibles;
     public GameObject[] lvl2Collectibles;
 
+    public int onHand = 0;
+
     public float balance = 0.0f;
     public float timer = 0.0f;
     public float goal = 0.0f;
     public TMP_Text balanceText;
+    public TMP_Text timerText;
 
     private GameObject slowCar;
     private GameObject fastCar;
@@ -37,7 +40,8 @@ public class Manager_NC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        
+        updateTimer();
     }
 
     IEnumerator SpawnSlowCar()
@@ -84,11 +88,15 @@ public class Manager_NC : MonoBehaviour
         }
     }
 
-    public void updateBalance(int value, int level)
+    public void updateBalance(int value)
     {
-        balance += value;
+        balance += onHand;
+        onHand = 0;
+        updateOnHand(onHand);
         balanceText.text = ("Balance: " + balance + "/" + goal);
-
+        if (balance >= goal) {
+            StartCoroutine(ChangeScene());
+        }
     }
 
     IEnumerator SpawnLvl1()
@@ -117,7 +125,7 @@ public class Manager_NC : MonoBehaviour
 
     public void PlayerRespawn()
     {
-        balance = 0;
+        onHand = 0;
         Instantiate(playerPrefab);
     }
 
@@ -136,7 +144,28 @@ public class Manager_NC : MonoBehaviour
         balanceText.text = ("Balance: " + balance + "/" + goal);
     }
 
-    
+    public void updateOnHand(int value)
+    {
+        onHand += value;
+        //onHandText.text = onHand;
+    }
+
+    public void updateTimer()
+    {
+        timer += Time.deltaTime;
+
+        timerText.text = ("Time: " + timer);
+
+    }
+
+    IEnumerator ChangeScene()
+    {
+
+        yield return new WaitForSeconds(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+
+    }
+
 }
 
    
