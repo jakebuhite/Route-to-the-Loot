@@ -6,7 +6,7 @@ public class Constants : MonoBehaviour
 {
     static public Constants C;
 
-    public int currentscore = 0;
+    public float currentTime = 0.0f;
 
     public int difficulty = 0;
 

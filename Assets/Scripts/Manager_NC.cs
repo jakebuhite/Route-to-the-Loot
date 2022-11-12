@@ -20,7 +20,10 @@ public class Manager_NC : MonoBehaviour
     public float timer = 0.0f;
     public float goal = 0.0f;
     public TMP_Text balanceText;
-    public TMP_Text timerText;
+    
+
+
+
 
     private GameObject slowCar;
     private GameObject fastCar;
@@ -28,6 +31,7 @@ public class Manager_NC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        reset();
         Instantiate(playerPrefab);
         StartCoroutine(SpawnSlowCar());
         StartCoroutine(SpawnFastCar());
@@ -40,8 +44,8 @@ public class Manager_NC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        updateTimer();
+        timer += Time.deltaTime;
+
     }
 
     IEnumerator SpawnSlowCar()
@@ -140,32 +144,40 @@ public class Manager_NC : MonoBehaviour
 
     public void setGoal()
     {
-        goal = 5 * Constants.C.difficulty;
+        goal = 10 * Constants.C.difficulty;
         balanceText.text = ("Balance: " + balance + "/" + goal);
     }
 
     public void updateOnHand(int value)
     {
         onHand += value;
-        //onHandText.text = onHand;
+        //playerPrefab.GetComponent<onHand>().text = onHand;
     }
 
-    public void updateTimer()
-    {
-        timer += Time.deltaTime;
+    
 
-        timerText.text = ("Time: " + timer);
+   
 
-    }
+    
 
     IEnumerator ChangeScene()
     {
-
+        passTimer();
         yield return new WaitForSeconds(1);
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
 
     }
 
+
+    public void passTimer(){
+        Constants.C.currentTime = timer;
+
+    }
+    public void reset() {
+        timer = 0;
+        onHand = 0;
+        balance = 0;
+    }
 }
 
    
