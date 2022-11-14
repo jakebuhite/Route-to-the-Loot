@@ -9,6 +9,7 @@ public class Constants : MonoBehaviour
     public float currentTime = 0.0f;
 
     public int difficulty = 0;
+    public int onHand = 0;
 
     private void Awake()
     {

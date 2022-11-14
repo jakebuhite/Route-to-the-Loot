@@ -19,12 +19,21 @@ public class Manager_NC : MonoBehaviour
     public float balance = 0.0f;
     public float timer = 0.0f;
     public float goal = 0.0f;
+<<<<<<< Updated upstream
     public TMP_Text balanceText;
     
 
 
 
 
+=======
+    public TMP_Text balanceText;
+    public OnhandText oht;
+
+
+
+
+>>>>>>> Stashed changes
     private GameObject slowCar;
     private GameObject fastCar;
 
@@ -151,7 +160,7 @@ public class Manager_NC : MonoBehaviour
     public void updateOnHand(int value)
     {
         onHand += value;
-        //playerPrefab.GetComponent<onHand>().text = onHand;
+        Constants.C.onHand = onHand;
     }
 
     
