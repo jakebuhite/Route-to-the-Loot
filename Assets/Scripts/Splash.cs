@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Splash : MonoBehaviour
 {
+
+    private AudioSource introAudio;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        introAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +24,10 @@ public class Splash : MonoBehaviour
     {
 
         yield return new WaitForSeconds(1);
+        if (introAudio.isPlaying)
+        {
+            introAudio.Stop();
+        }
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
 
     }

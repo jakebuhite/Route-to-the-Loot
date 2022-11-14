@@ -20,9 +20,11 @@ public class GameOver : MonoBehaviour
     private const string easyTimeKey = "high_Score1";
     private const string mediumTimeKey = "high_Score2";
     private const string hardTimeKey = "high_Score3";
+    private AudioSource outroMusic;
     // Start is called before the first frame update
     void Start()
     {
+        outroMusic = this.GetComponent<AudioSource>();
         //PlayerPrefs.SetFloat(easyTimeKey, 50.0f);
         //PlayerPrefs.SetFloat(mediumTimeKey, 100.0f);
         //PlayerPrefs.SetFloat(hardTimeKey, 100.0f);    
