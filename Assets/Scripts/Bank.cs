@@ -9,11 +9,17 @@ public class Bank : MonoBehaviour
     public Manager_NC manager;
     private ParticleSystem stars;
 
+    private AudioSource cashSound;
+
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
         stars = GetComponent<ParticleSystem>();
         stars.Stop();
+=======
+        cashSound = this.GetComponent<AudioSource>();
+>>>>>>> df930916852e4973ada58ee42d4b85c0f869406b
     }
 
     // Update is called once per frame
@@ -27,8 +33,16 @@ public class Bank : MonoBehaviour
         GameObject gameObject = collision.gameObject;
         if (gameObject.tag == "Player")
         {
+<<<<<<< HEAD
             StartCoroutine(PlayStars());
             manager.updateBalance(manager.onHand);
+=======
+            if (manager.onHand > 0)
+            {
+                cashSound.PlayOneShot(cashSound.clip, 0.75f);
+                manager.updateBalance(manager.onHand);
+            }
+>>>>>>> df930916852e4973ada58ee42d4b85c0f869406b
         }
     }
 

@@ -9,12 +9,17 @@ public class CarMove_NC : MonoBehaviour
     public GameObject bloodSplat;
 
     new private Renderer renderer;
+<<<<<<< HEAD
     private GameObject blood;
+=======
+    private AudioSource thudSound;
+>>>>>>> df930916852e4973ada58ee42d4b85c0f869406b
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = this.GetComponent<Renderer>();
+        thudSound = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,9 +37,13 @@ public class CarMove_NC : MonoBehaviour
         GameObject gameObject = collision.gameObject;
         if (gameObject.tag == "Player")
         {
+<<<<<<< HEAD
             blood = Instantiate(bloodSplat);
             blood.transform.position = collision.transform.position;
             Destroy(blood, 0.25f);
+=======
+            thudSound.PlayOneShot(thudSound.clip, 0.75f);
+>>>>>>> df930916852e4973ada58ee42d4b85c0f869406b
             Destroy(gameObject);
             manager.PlayerRespawn();
         }

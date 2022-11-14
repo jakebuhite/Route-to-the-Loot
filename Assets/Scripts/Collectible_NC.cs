@@ -25,6 +25,11 @@ public class Collectible_NC : MonoBehaviour
         GameObject gameObject = collision.gameObject;
         if (gameObject.tag == "Player")
         {
+            AudioSource pickupSound = gameObject.GetComponent<AudioSource>();
+            if (!pickupSound.isPlaying)
+            {
+                pickupSound.PlayOneShot(pickupSound.clip, 0.75f);
+            }
             manager.updateOnHand(pointValue);
             Destroy(this.gameObject);
         }
