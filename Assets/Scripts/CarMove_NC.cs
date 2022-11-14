@@ -6,8 +6,10 @@ public class CarMove_NC : MonoBehaviour
 {
     public float speed;
     public Manager_NC manager;
+    public GameObject bloodSplat;
 
     new private Renderer renderer;
+    private GameObject blood;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,9 @@ public class CarMove_NC : MonoBehaviour
         GameObject gameObject = collision.gameObject;
         if (gameObject.tag == "Player")
         {
+            blood = Instantiate(bloodSplat);
+            blood.transform.position = collision.transform.position;
+            Destroy(blood, 0.25f);
             Destroy(gameObject);
             manager.PlayerRespawn();
         }

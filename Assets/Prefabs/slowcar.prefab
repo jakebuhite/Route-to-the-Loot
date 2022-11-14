@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   manager: {fileID: 0}
+  bloodSplat: {fileID: 1329266210127373647, guid: 0e071477faab7a54a9a4f6a7407e0212, type: 3}
 --- !u!50 &6083656380949669205
 Rigidbody2D:
   serializedVersion: 4
@@ -148,7 +149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.64, y: 8}
+  m_Size: {x: 2, y: 7.5}
   m_EdgeRadius: 0
 --- !u!198 &-8425246758387562711
 ParticleSystem:
