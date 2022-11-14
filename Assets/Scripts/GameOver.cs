@@ -20,11 +20,9 @@ public class GameOver : MonoBehaviour
     private const string easyTimeKey = "high_Score1";
     private const string mediumTimeKey = "high_Score2";
     private const string hardTimeKey = "high_Score3";
-    private AudioSource outroMusic;
     // Start is called before the first frame update
     void Start()
     {
-        outroMusic = this.GetComponent<AudioSource>();
         //PlayerPrefs.SetFloat(easyTimeKey, 50.0f);
         //PlayerPrefs.SetFloat(mediumTimeKey, 100.0f);
         //PlayerPrefs.SetFloat(hardTimeKey, 100.0f);    
@@ -74,13 +72,13 @@ public class GameOver : MonoBehaviour
 
         if (pastTime > Constants.C.currentTime)
         {
-            text.text = ("You  set  the new  fastest  time  of:\n" + Constants.C.currentTime + "  seconds! \n You  beat  the  previous  score  of:\n" + pastTime + "  seconds \n Congrats!");
+            text.text = ("You  set  the new  fastest  time  of:\n" + (int) Constants.C.currentTime + "  seconds! \n You  beat  the  previous  score  of:\n" + (int) pastTime + "  seconds \n Congrats!");
             pastTime = Constants.C.currentTime;
             PlayerPrefs.SetFloat(easyTimeKey, Constants.C.currentTime);
         }
         else
         {
-            text.text = ("Your  score  was:\n" + Constants.C.currentTime + "  seconds! \n The  current  highscore  is:\n" + pastTime + "  seconds \n Better  luck  next  time!");
+            text.text = ("Your  score  was:\n" + (int) Constants.C.currentTime + "  seconds! \n The  current  highscore  is:\n" + (int) pastTime + "  seconds \n Better  luck  next  time!");
 
         }
     }

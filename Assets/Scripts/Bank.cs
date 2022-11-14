@@ -8,10 +8,12 @@ public class Bank : MonoBehaviour
 
     public Manager_NC manager;
 
+    private AudioSource cashSound;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        cashSound = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,8 +27,11 @@ public class Bank : MonoBehaviour
         GameObject gameObject = collision.gameObject;
         if (gameObject.tag == "Player")
         {
-            manager.updateBalance(manager.onHand);
-            
+            if (manager.onHand > 0)
+            {
+                cashSound.PlayOneShot(cashSound.clip, 0.75f);
+                manager.updateBalance(manager.onHand);
+            }
         }
     }
 }
