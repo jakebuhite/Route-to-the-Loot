@@ -127,6 +127,7 @@ public class Manager_NC : MonoBehaviour
     {
         onHand = 0;
         Instantiate(playerPrefab);
+        updateOnHand(onHand);
     }
 
     public GameObject getRandomCollectible(int level)

@@ -10,6 +10,7 @@ public class GameOver : MonoBehaviour
     public TMP_Text text;
     public float pastTime = 0;
     public int difficulty = 0;
+    
     //public float fastestTimeKey
 
 
@@ -45,7 +46,7 @@ public class GameOver : MonoBehaviour
         }
 
 
-
+        
 
     }
 
@@ -68,7 +69,7 @@ public class GameOver : MonoBehaviour
 
             Debug.Log("Setting Fastest Time");
         }
-
+        checkInitializedTimes();
 
         if (pastTime > Constants.C.currentTime)
         {
@@ -96,7 +97,7 @@ public class GameOver : MonoBehaviour
 
             Debug.Log("Setting High Score");
         }
-
+        checkInitializedTimes();
 
         if (pastTime >Constants.C.currentTime)
         {
@@ -123,7 +124,7 @@ public class GameOver : MonoBehaviour
 
             Debug.Log("Setting High Score");
         }
-
+        checkInitializedTimes();
 
         if (pastTime > Constants.C.currentTime)
         {
@@ -157,6 +158,12 @@ public class GameOver : MonoBehaviour
 
         yield return new WaitForSeconds(0);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Splash");
+
+    }
+
+    public void checkInitializedTimes() {
+        if (pastTime == 0)
+            pastTime = 200;
 
     }
 }
