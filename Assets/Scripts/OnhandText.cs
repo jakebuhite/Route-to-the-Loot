@@ -5,7 +5,7 @@ using TMPro;
 
 public class OnhandText : MonoBehaviour
 {
-    //public TMP_Text onHandText;
+    public TMP_Text onHandText;
    
     public int onHand = 0;
 
@@ -25,7 +25,7 @@ public class OnhandText : MonoBehaviour
 
     public void updateOnHandText() {
         onHand = Constants.C.onHand;
-        //onHandText.text = "" + onHand;
+        onHandText.text = "On Hand:" + onHand;
 
     }
 }
