@@ -53,12 +53,12 @@ public class Manager_NC : MonoBehaviour
             slowCar = Instantiate(slowCarPrefab);
             if (whereSpawn == 0)
             {
-                slowCar.transform.position = new Vector3(-5.15f, -14, 0);
+                slowCar.transform.position = new Vector3(-5.15f, -14, -2);
                 slowCar.transform.Rotate(0, 0, 0);
             }
             if (whereSpawn == 1)
             {
-                slowCar.transform.position = new Vector3(-7.9f, 12, 0);
+                slowCar.transform.position = new Vector3(-7.9f, 12, -2);
                 slowCar.transform.Rotate(0, 0, 180);
             }
             CarMove_NC slowCarInst = slowCar.GetComponent<CarMove_NC>();
@@ -75,12 +75,12 @@ public class Manager_NC : MonoBehaviour
             fastCar = Instantiate(fastCarPrefab);
             if (whereSpawn == 0)
             {
-                fastCar.transform.position = new Vector3(18.57f, -14, 0);
+                fastCar.transform.position = new Vector3(18.57f, -14, -2);
                 fastCar.transform.Rotate(0, 0, 0);
             }
             if (whereSpawn == 1)
             {
-                fastCar.transform.position = new Vector3(15.9f, 12, 0);
+                fastCar.transform.position = new Vector3(15.9f, 12, -2);
                 fastCar.transform.Rotate(0, 0, 180);
             }
             CarMove_NC fastCarInst = fastCar.GetComponent<CarMove_NC>();

@@ -10,11 +10,13 @@ public class CarMove_NC : MonoBehaviour
 
     new private Renderer renderer;
     private GameObject blood;
+    private AudioSource thudSound;
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = this.GetComponent<Renderer>();
+        thudSound = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,8 +35,12 @@ public class CarMove_NC : MonoBehaviour
         if (gameObject.tag == "Player")
         {
             blood = Instantiate(bloodSplat);
-            blood.transform.position = collision.transform.position;
+            blood.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, -1);
             Destroy(blood, 0.25f);
+            if (!thudSound.isPlaying)
+            {
+                thudSound.PlayOneShot(thudSound.clip, 0.75f);
+            }
             Destroy(gameObject);
             manager.PlayerRespawn();
         }

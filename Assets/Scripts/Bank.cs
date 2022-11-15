@@ -31,7 +31,6 @@ public class Bank : MonoBehaviour
         if (gameObject.tag == "Player")
         {
             StartCoroutine(PlayStars());
-            manager.updateBalance(manager.onHand);
             if (manager.onHand > 0)
             {
                 cashSound.PlayOneShot(cashSound.clip, 0.75f);

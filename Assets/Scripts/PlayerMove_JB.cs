@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMove_JB : MonoBehaviour
@@ -11,6 +12,9 @@ public class PlayerMove_JB : MonoBehaviour
     // Player animation
     public Sprite[] playerSprites;
     private int currentTexture = 0;
+
+    // OnHand Text (Child Text)
+    public TMP_Text onHandTxt;
 
     // Private variables
     new private SpriteRenderer renderer;
@@ -91,6 +95,8 @@ public class PlayerMove_JB : MonoBehaviour
             if (isFacingLeft)
             {
                 this.transform.Rotate(0.0f, 180.0f, 0.0f);
+                // Due to the text being a child of the player, the text will rotate as well. The following will fix this
+                onHandTxt.transform.Rotate(0.0f, 180.0f, 0.0f);
                 isFacingLeft = false;
             }
             if (!isActive)
@@ -107,6 +113,7 @@ public class PlayerMove_JB : MonoBehaviour
             if (!isFacingLeft)
             {
                 this.transform.Rotate(0.0f, 180.0f, 0.0f);
+                onHandTxt.transform.Rotate(0.0f, 180.0f, 0.0f);
                 isFacingLeft = true;
             }
             if (!isActive)
