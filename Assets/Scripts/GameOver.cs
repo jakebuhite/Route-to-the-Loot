@@ -9,6 +9,8 @@ public class GameOver : MonoBehaviour
 {
     public TMP_Text currentTimeTxt;
     public TMP_Text highScoreTxt;
+    public TMP_Text newHSTxt;
+
     public float pastTime = 0;
     public int difficulty = 0;
     
@@ -65,8 +67,8 @@ public class GameOver : MonoBehaviour
         if (pastTime > Constants.C.currentTime)
         {
             currentTimeTxt.text = "Time: " + Constants.C.currentTime.ToString("0") + " seconds";
-            currentTimeTxt.color = new Color(178, 251, 165);
             highScoreTxt.text = "Highscore: " + pastTime.ToString("0") + " seconds";
+            newHSTxt.text = "NEW HS!";
             pastTime = Constants.C.currentTime;
             PlayerPrefs.SetFloat(easyTimeKey, Constants.C.currentTime);
         }
@@ -74,6 +76,7 @@ public class GameOver : MonoBehaviour
         {
             currentTimeTxt.text = "Time: " + Constants.C.currentTime.ToString("0") + " seconds";
             highScoreTxt.text = "Highscore: " + pastTime.ToString("0") + " seconds";
+            newHSTxt.text = "";
         }
     }
 
@@ -95,8 +98,8 @@ public class GameOver : MonoBehaviour
         if (pastTime >Constants.C.currentTime)
         {
             currentTimeTxt.text = "Time: " + Constants.C.currentTime.ToString("0") + " seconds";
-            currentTimeTxt.color = new Color(178, 251, 165);
             highScoreTxt.text = "Highscore: " + pastTime.ToString("0") + " seconds";
+            newHSTxt.text = "NEW HS!";
             pastTime = Constants.C.currentTime;
             PlayerPrefs.SetFloat(mediumTimeKey, Constants.C.currentTime);
         }
@@ -104,6 +107,7 @@ public class GameOver : MonoBehaviour
         {
             currentTimeTxt.text = "Time: " + Constants.C.currentTime.ToString("0") + " seconds";
             highScoreTxt.text = "Highscore: " + pastTime.ToString("0") + " seconds";
+            newHSTxt.text = "";
         }
     }
 
@@ -125,8 +129,8 @@ public class GameOver : MonoBehaviour
         if (pastTime > Constants.C.currentTime)
         {
             currentTimeTxt.text = "Time: " + Constants.C.currentTime.ToString("0") + " seconds";
-            currentTimeTxt.color = new Color(178, 251, 165);
             highScoreTxt.text = "Highscore: " + pastTime.ToString("0") + " seconds";
+            newHSTxt.text = "NEW HS!";
             pastTime = Constants.C.currentTime;
             PlayerPrefs.SetFloat(hardTimeKey, Constants.C.currentTime);
         }
@@ -134,6 +138,7 @@ public class GameOver : MonoBehaviour
         {
             currentTimeTxt.text = "Time: " + Constants.C.currentTime.ToString("0") + " seconds";
             highScoreTxt.text = "Highscore: " + pastTime.ToString("0") + " seconds";
+            newHSTxt.text = "";
         }
     }
 

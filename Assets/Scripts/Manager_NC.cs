@@ -32,7 +32,6 @@ public class Manager_NC : MonoBehaviour
         StartCoroutine(SpawnSlowCar());
         StartCoroutine(SpawnFastCar());
         StartCoroutine(SpawnLvl1());
-        StartCoroutine(SpawnLvl1());
         StartCoroutine(SpawnLvl2());
         StartCoroutine(SpawnLvl2());
         setGoal();
@@ -108,7 +107,7 @@ public class Manager_NC : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3, 5));
+            yield return new WaitForSeconds(Random.Range(2, 5));
             GameObject newObj = Instantiate(getRandomCollectible(1));
             newObj.transform.position = new Vector3(Random.Range(-3.15f, 12.57f), Random.Range(-12, 13), 0);
             Collectible_NC instance = newObj.GetComponent<Collectible_NC>();
