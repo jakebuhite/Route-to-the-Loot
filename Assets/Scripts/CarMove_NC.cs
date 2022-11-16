@@ -8,15 +8,20 @@ public class CarMove_NC : MonoBehaviour
     public Manager_NC manager;
     public GameObject bloodSplat;
 
+    public AudioSource thudSound;
+    public AudioSource carPassingSound;
+
     new private Renderer renderer;
     private GameObject blood;
-    private AudioSource thudSound;
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = this.GetComponent<Renderer>();
-        thudSound = this.GetComponent<AudioSource>();
+        if (!carPassingSound.isPlaying)
+        {
+            carPassingSound.PlayOneShot(carPassingSound.clip, 1.0f);
+        }
     }
 
     // Update is called once per frame

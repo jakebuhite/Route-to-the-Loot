@@ -32,6 +32,8 @@ public class Manager_NC : MonoBehaviour
         StartCoroutine(SpawnSlowCar());
         StartCoroutine(SpawnFastCar());
         StartCoroutine(SpawnLvl1());
+        StartCoroutine(SpawnLvl1());
+        StartCoroutine(SpawnLvl2());
         StartCoroutine(SpawnLvl2());
         setGoal();
         
@@ -93,9 +95,12 @@ public class Manager_NC : MonoBehaviour
         balance += onHand;
         onHand = 0;
         updateOnHand(onHand);
-        balanceText.text = ("Balance: " + balance + "/" + goal);
         if (balance >= goal) {
+            balanceText.text = ("Balance: $" + goal + "/" + goal);
             StartCoroutine(ChangeScene());
+        } else
+        {
+            balanceText.text = ("Balance: $" + balance + "/" + goal);
         }
     }
 
@@ -103,7 +108,7 @@ public class Manager_NC : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3, 7));
+            yield return new WaitForSeconds(Random.Range(3, 5));
             GameObject newObj = Instantiate(getRandomCollectible(1));
             newObj.transform.position = new Vector3(Random.Range(-3.15f, 12.57f), Random.Range(-12, 13), 0);
             Collectible_NC instance = newObj.GetComponent<Collectible_NC>();
@@ -115,7 +120,7 @@ public class Manager_NC : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(6, 10));
+            yield return new WaitForSeconds(Random.Range(5, 8));
             GameObject newObj = Instantiate(getRandomCollectible(2));
             newObj.transform.position = new Vector3(Random.Range(20.57f, 25), Random.Range(-12, 13), 0);
             Collectible_NC instance = newObj.GetComponent<Collectible_NC>();

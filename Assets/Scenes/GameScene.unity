@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowCarPrefab: {fileID: 4311206911658066894, guid: 583b62ad1a637f044ac446ad344fcefd, type: 3}
   fastCarPrefab: {fileID: 434234726236567367, guid: c37d2bdd4c3364d40b3a38c8d449bc71, type: 3}
-  playerPrefab: {fileID: 2889451134453071383, guid: dcaecfee0f23d824a990056d53c0723d, type: 3}
+  playerPrefab: {fileID: 1181463602120457558, guid: dcaecfee0f23d824a990056d53c0723d, type: 3}
   lvl1Collectibles:
   - {fileID: 490229022741608932, guid: c4624e8da3237a44cb52970d595b7f44, type: 3}
   - {fileID: 7364211936170094586, guid: f5995140089d25747ad361bd2152788b, type: 3}
@@ -5121,7 +5121,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 029bb6608fe06d847864d0e3d7f4a8b4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

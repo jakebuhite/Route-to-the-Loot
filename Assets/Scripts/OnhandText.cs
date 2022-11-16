@@ -25,7 +25,7 @@ public class OnhandText : MonoBehaviour
 
     public void updateOnHandText() {
         onHand = Constants.C.onHand;
-        onHandText.text = "On Hand:" + onHand;
+        onHandText.text = "$" + onHand;
 
     }
 }
